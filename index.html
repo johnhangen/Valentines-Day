@@ -13,8 +13,32 @@
     <!-- Burst confetti container -->
     <div class="burst-container" id="burstContainer"></div>
 
+    <!-- Countdown container -->
+    <div class="countdown-container" id="countdownContainer">
+        <h1 class="countdown-title">Valentine's Day</h1>
+        <div class="countdown-timer" id="countdownTimer">
+            <div class="countdown-item">
+                <span class="countdown-value" id="days">00</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-value" id="hours">00</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-value" id="minutes">00</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-value" id="seconds">00</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+        <button class="btn btn-yes countdown-btn" id="skipCountdown">I can't wait!</button>
+    </div>
+
     <!-- Question container -->
-    <div class="container" id="questionContainer">
+    <div class="container hidden" id="questionContainer">
         <h1>Will you be my Valentine?</h1>
         <div class="buttons">
             <button class="btn btn-yes" id="yesBtn">Yes!</button>
