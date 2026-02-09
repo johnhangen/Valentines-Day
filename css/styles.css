@@ -12,7 +12,7 @@ body {
     align-items: center;
     background: linear-gradient(135deg, #FFE4EC 0%, #FFB6C1 50%, #FF69B4 100%);
     font-family: 'Georgia', serif;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
 }
 
@@ -136,19 +136,26 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     z-index: 100;
     background: linear-gradient(135deg, #FFE4EC 0%, #FFB6C1 50%, #FF69B4 100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
 }
 
 .celebration-container.active {
     display: flex;
+    flex-direction: column;
 }
 
 .celebration-content {
     text-align: center;
     z-index: 101;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px 10px;
 }
 
 .celebration-text {
@@ -207,11 +214,25 @@ body {
 @media (max-width: 700px) {
     .media-row {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .spotify-embed {
+        max-width: 100%;
+    }
+
+    .celebration-image {
+        max-width: 100%;
     }
 
     .celebration-image img {
         height: auto;
         max-height: 300px;
+    }
+
+    .celebration-text {
+        font-size: 1.8rem;
+        word-wrap: break-word;
     }
 }
 
@@ -369,6 +390,15 @@ body {
     }
 
     .celebration-text {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+        padding: 0 10px;
+    }
+
+    .heart-emoji {
+        font-size: 3rem;
+    }
+
+    .play-prompt {
+        font-size: 1rem;
     }
 }
