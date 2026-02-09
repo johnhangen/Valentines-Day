@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- Burst confetti container -->
+    <div class="burst-container" id="burstContainer"></div>
+
+    <!-- Question container -->
+    <div class="container" id="questionContainer">
+        <h1>Will you be my Valentine?</h1>
+        <div class="buttons">
+            <button class="btn btn-yes" id="yesBtn">Yes!</button>
+            <button class="btn btn-no" id="noBtn">No</button>
+        </div>
+    </div>
+
+    <!-- Celebration container (hidden initially) -->
+    <div class="celebration-container" id="celebrationContainer">
+        <div class="celebration-content">
+            <h1 class="celebration-text">Yay! I am so excited to spend Valentine's Day with you!</h1>
+            <div class="heart-emoji">❤️</div>
+            <div class="media-row">
+                <div class="spotify-embed">
+                    <p class="play-prompt">Press play for our playlist!</p>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2ypIy0xxIp8Hl5WBstvWmH?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="celebration-image">
+                    <img src="images/IMG_4325.jpg" alt="Valentine's photo">
+                </div>
+            </div>
+        </div>
+        <div class="confetti-container" id="confettiContainer"></div>
+        <div class="floating-hearts" id="floatingHearts"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

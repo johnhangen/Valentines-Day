@@ -1,0 +1,374 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #FFE4EC 0%, #FFB6C1 50%, #FF69B4 100%);
+    font-family: 'Georgia', serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Floating hearts background */
+.hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.bg-heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 6s ease-in infinite;
+    opacity: 0.6;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Question container */
+.container {
+    text-align: center;
+    padding: 40px 60px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(227, 27, 95, 0.3);
+    z-index: 10;
+    position: relative;
+    max-width: 90%;
+}
+
+.container h1 {
+    color: #E31B5F;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(227, 27, 95, 0.2);
+}
+
+/* Buttons container */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    min-height: 60px;
+    position: relative;
+}
+
+/* Base button styles */
+.btn {
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+/* Yes button - prominent and inviting */
+.btn-yes {
+    background: linear-gradient(135deg, #FF69B4 0%, #E31B5F 100%);
+    color: white;
+    box-shadow: 0 5px 20px rgba(227, 27, 95, 0.4);
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 18px 50px;
+}
+
+.btn-yes:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(227, 27, 95, 0.6);
+}
+
+/* No button - smaller and muted */
+.btn-no {
+    background: #aaa;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-no.evading {
+    position: absolute;
+}
+
+.btn-no:hover {
+    background: #999;
+}
+
+.btn-no.shrinking {
+    transition: transform 0.2s ease;
+}
+
+/* Celebration container */
+.celebration-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background: linear-gradient(135deg, #FFE4EC 0%, #FFB6C1 50%, #FF69B4 100%);
+}
+
+.celebration-container.active {
+    display: flex;
+}
+
+.celebration-content {
+    text-align: center;
+    z-index: 101;
+}
+
+.celebration-text {
+    color: #E31B5F;
+    font-size: 3rem;
+    animation: pulse 1s ease-in-out infinite;
+    text-shadow: 3px 3px 6px rgba(227, 27, 95, 0.3);
+    padding: 0 20px;
+}
+
+.heart-emoji {
+    font-size: 5rem;
+    animation: heartBeat 1s ease-in-out infinite;
+    margin-top: 20px;
+}
+
+.media-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.spotify-embed {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.play-prompt {
+    color: #E31B5F;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.celebration-image {
+    max-width: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.celebration-image img {
+    width: 100%;
+    height: 352px;
+    object-fit: cover;
+    object-position: left;
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .media-row {
+        flex-direction: column;
+    }
+
+    .celebration-image img {
+        height: auto;
+        max-height: 300px;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.2);
+    }
+}
+
+/* Burst confetti from button */
+.burst-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.burst-confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: burst 1s ease-out forwards;
+}
+
+@keyframes burst {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Confetti */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 99;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    animation: confettiFall 3s ease-out forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Floating hearts in celebration */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 98;
+}
+
+.celebration-heart {
+    position: absolute;
+    font-size: 30px;
+    animation: celebrationFloat 4s ease-out forwards;
+}
+
+@keyframes celebrationFloat {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(80vh) scale(1);
+    }
+    100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    .container h1 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .btn-yes {
+        font-size: 1.2rem;
+        padding: 15px 35px;
+    }
+
+    .btn-no {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+
+    .celebration-text {
+        font-size: 2rem;
+    }
+
+    .heart-emoji {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .container h1 {
+        font-size: 1.5rem;
+    }
+
+    .celebration-text {
+        font-size: 1.6rem;
+    }
+}
